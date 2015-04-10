@@ -1,0 +1,27 @@
+{% extends "soya/base.html" %}
+
+{% block content %}
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="/">Главня страница</a></li>
+	  <li role="presentation"><a href="/soya/info">Информация о сойи</a></li>
+	  <li role="presentation" class="active"><a href="/soya/product">Товары</a></li>
+	  <li role="presentation"><a href="/soya/zakaz">Заказать</a></li>
+	</ul>
+<div class="soya-index">
+{% if user.is_authenticated  %}
+  <div class="panel panel-default">
+  <div class="panel-heading">Закази</div>
+  <div class="panel-body">
+    <p>  {{ zakaz.name }}</p>
+  </div>
+    {% for zakaz in zakaz %}
+  <table class="table">
+    {{ zakaz.id }}
+    {{ zakaz.name }}
+    {{ zakaz.number }}
+  </table>
+  {% endfor %}
+</div>
+{% endif %}
+</div>
+{% endblock %}

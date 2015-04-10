@@ -1,0 +1,26 @@
+{% extends "soya/base.html" %}
+
+{% block content %}
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="/">Главня страница</a></li>
+	  <li role="presentation"><a href="/soya/info">Информация о сойи</a></li>
+	  <li role="presentation" class="active"><a href="/soya/product">Товары</a></li>
+	  <li role="presentation"><a href="/soya/zakaz">Заказать</a></li>
+	</ul>
+<div class="soya-index">
+	{% for products in products %}
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="{{ products.image.url }}" alt="...">
+		      <div class="caption">
+		        <p>
+		        Сорт: {{ products.soya_sort }}<br/>
+		        Цена: {{ products.sena }} за kg
+		   		</p>
+		        <p><a href="/soya/zakaz" class="btn btn-primary" role="button">Заказать</a>
+		      </div>
+		    </div>
+		  </div>
+		{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "soya/base.html" %}
+
+{% block content %}
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="/">Главня страница</a></li>
+	  <li role="presentation" class="active"><a href="/soya/info">Информация о сойи</a></li>
+	  <li role="presentation"><a href="/soya/product">Товары</a></li>
+	  <li role="presentation"><a href="/soya/zakaz">Заказать</a></li>
+	</ul>
+<div class="soya-index">
+	{% for soyainfo in soyainfo %}
+		  <div class="col-sm-6 col-md-4">
+		    <div class="thumbnail">
+		      <img src="{{ soyainfo.image.url }}" alt="...">
+		      <div class="caption">
+		        <p>
+		        Коротко о сойи:{{ soyainfo.soya_sort }} </br>
+		   		</p>
+		        <p><a href="/soya/{{soyainfo.id }}" class="btn btn-primary" role="button">узнать больше</a>
+		      </div>
+		    </div>
+		  </div>
+		{% endfor %}
+</div>
+{% endblock %}
